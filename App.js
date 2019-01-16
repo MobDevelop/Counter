@@ -8,8 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, NativeModules, NativeEventEmitter} from 'react-native';
-import Counter from './Counter'
-
+import Toast from './Toast.js'
+//import Counter from './Counter'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -21,14 +21,16 @@ export default class App extends Component {
   constructor(props){
     super(props);
     
-    Counter.addListener(
+    /*Counter.addListener(
       "onIncrement",
       res => console.warn("event onIncrement", res)
     )
     Counter.increment()
     Counter.decrement()
-    Counter.decrement()
-    
+    Counter.decrement()*/
+   Toast.show('Long Toast', Toast.LONG);
+   Toast.show('Short Toast', Toast.SHORT);
+   //console.error(NativeModules.ToastExample)
   }
   render() {
     return (
